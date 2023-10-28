@@ -4,14 +4,11 @@ import MainNav from "@/components/main-nav";
 import Container from "@/components/ui/container";
 import NavbarActions from "@/components/navbar-actions";
 import getCategories from "@/actions/get-categories";
+import axios from "axios";
 
 const Navbar = async () => {
-  let categories = null;
-  try {
-    categories = await getCategories();
-  } catch (error) {
-    console.error(error);
-  }
+  const response = await axios(`${process.env.NEXT_PUBLIC_API_URL}/categories`);
+  const categories = response.data;
 
   return ( 
     <div className="border-b">
