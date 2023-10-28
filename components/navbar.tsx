@@ -3,13 +3,11 @@ import Link from "next/link";
 import MainNav from "@/components/main-nav";
 import Container from "@/components/ui/container";
 import NavbarActions from "@/components/navbar-actions";
-import getCategories from "@/actions/get-categories";
-import axios from "axios";
+import getCategories from "@/app/actions/get-categories";
 
 const Navbar = async () => {
-  const response = await axios(`${process.env.NEXT_PUBLIC_API_URL}/categories`);
-  const categories = response.data;
-
+  const categories = await getCategories();
+  console.log(categories)
   return ( 
     <div className="border-b">
       <Container>
