@@ -7,7 +7,7 @@ import getCategories from "@/app/actions/get-categories";
 
 const Navbar = async () => {
   const categories = await getCategories();
-  console.log(categories)
+
   return ( 
     <div className="border-b">
       <Container>
@@ -15,7 +15,7 @@ const Navbar = async () => {
           <Link href="/" className="ml-4 flex lg:ml-0 gap-x-2">
             <p className="font-bold text-xl">STORE</p>
           </Link>
-          {categories && <MainNav data={categories} />}
+          <MainNav data={categories} />
           <NavbarActions />
         </div>
       </Container>

@@ -7,7 +7,6 @@ interface BillboardProps {
 const Billboard: React.FC<BillboardProps> = ({
   data
 }) => {
-  console
   if (!data) {
     return null;
   }
